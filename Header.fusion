@@ -1,0 +1,15 @@
+prototype(Site.Public:NodeTypes.ContentElement.PageHeader.Header) < prototype(Neos.Fusion:Component) {
+
+  navi = Neos.Neos:MenuItems {
+    startingPoint = ${site}
+    maximumLevels = 2
+  }
+
+  languageMenu = Neos.Neos:DimensionsMenuItems {
+    dimension = 'language'
+  }
+
+  renderer = Site.Public:Presentation.Organisms.PageHeader {
+    @apply.props = ${props}
+  }
+}
