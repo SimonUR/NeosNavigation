@@ -12,4 +12,14 @@ prototype(Site.Public:NodeTypes.ContentElement.PageHeader.Header) < prototype(Ne
   renderer = Site.Public:Presentation.Organisms.PageHeader {
     @apply.props = ${props}
   }
+  
+	@cache {
+    mode = 'cached'
+		entryIdentifier {
+			documentNode = ${documentNode}
+		}
+		entryTags {
+			1 = ${Neos.Caching.nodeTypeTag('Neos.Neos:Document', documentNode)}
+		}
+	} 
 }
