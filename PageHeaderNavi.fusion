@@ -1,0 +1,12 @@
+prototype(Site.Public:Presentation.Nucleus.PageHeaderNavi) < prototype(Neos.Neos:ContentComponent) {
+
+  navi = Neos.Neos:MenuItems
+
+  renderer = afx`
+    <nav id="pageHeader__navi">
+      <div id="pageHeader__navi__wrap">
+        <Site.Public:Presentation.Molecules.PageHeaderNaviTree navigation={props.navi}/>
+      </div>
+    </nav>
+  `
+}
