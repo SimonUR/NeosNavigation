@@ -1,0 +1,12 @@
+prototype(Site.Public:Presentation.Organisms.PageHeader) < prototype(Neos.Neos:ContentComponent) {
+
+  navi = Neos.Neos:MenuItems
+  languageMenu = Neos.Neos:DimensionsMenuItems
+
+  renderer = afx`
+    <header id="pageHeader">
+      <Site.Public:Presentation.Nucleus.PageHeaderBar languageMenu={props.languageMenu}/>
+      <Site.Public:Presentation.Nucleus.PageHeaderNavi navi={props.navi}/>
+    </header>
+  `
+}
