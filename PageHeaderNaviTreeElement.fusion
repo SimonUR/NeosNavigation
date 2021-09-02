@@ -1,0 +1,12 @@
+prototype(Site.Public:Presentation.Atoms.PageHeaderNaviTreeElement) < prototype(Neos.Neos:ContentComponent) {
+
+  item = ${[]}
+  highlight = false
+
+  renderer = afx`
+    <li class="pageHeader__navi__tree__element">
+      <Neos.Neos:NodeLink attributes.class={props.highlight ? 'pageHeader__navi__tree__element__link highlightPath' : 'pageHeader__navi__tree__element__link'} node={props.item.node}>{props.item.label}</Neos.Neos:NodeLink>
+      <Site.Public:Presentation.Molecules.PageHeaderNaviTree @if.renderer={props.item.subItems} navigation={props.item.subItems} parent={props.item}/>
+    </li>
+  `
+}
