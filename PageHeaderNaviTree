@@ -1,0 +1,18 @@
+prototype(Site.Public:Presentation.Molecules.PageHeaderNaviTree) < prototype(Neos.Neos:ContentComponent) {
+
+  navigation = ${[]}
+  parent = ${[]}
+
+  renderer = afx`
+    <ul class="pageHeader__navi__tree">
+      <li class="pageHeader__navi__tree__element" @if.renderer={props.parent}>
+        <Neos.Neos:NodeLink attributes.class="pageHeader__navi__tree__element__link"
+                            node={props.parent.node}>Alles zu {props.parent.label}</Neos.Neos:NodeLink>
+      </li>
+      <Neos.Fusion:Loop items={props.navigation} itemName="naviElement">
+        <Site.Public:Presentation.Atoms.PageHeaderNaviTreeElement item={naviElement}
+                                                                       highlight={naviElement.state == 'current' || naviElement.state == 'active' ? true : false}/>
+      </Neos.Fusion:Loop>
+    </ul>
+  `
+}
